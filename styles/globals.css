@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.bg {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.bg:before {
+  background: radial-gradient(circle, #0f130e 0, #0b0f0a 100%);
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.bg:after {
+  content: "";
+  background-image: url("/assets/images/pattern.svg");
+  z-index: 3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.1;
+}
+
+.gradient {
+  height: fit-content;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  background-image:
+    radial-gradient(at 97% 21%, #59ff00 0px, transparent 50%),
+    radial-gradient(at 3% 79%, #59ff00 0px, transparent 30%);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%) ;
+  top: 80px;
+  opacity: 0.2;
+}
+
+@media screen and (max-width: 640px) {
+  .bg {
+    padding: 0;
+    }
+}
+
+/* Tailwind Styles */
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+.green_btn {
+    @apply rounded-sm bg-primary-green border text-primary-bg border-primary-bg font-bold py-1.5 px-5 transition-all hover:bg-tertiary-green hover:text-primary-text hover:border-primary-text text-center text-base font-karla flex items-center justify-center;
+}
+
+.outline_btn {
+    @apply rounded-sm bg-[rgba(0,0,0,0.4)] text-primary-text border border-primary-text  font-bold py-1.5 px-5  transition-all drop-shadow-[0_0_5px_rgba(255,255,255,0.4)]  hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] text-center text-base font-karla flex items-center justify-center;
+}
+
+.dashboard_btn {
+  @apply rounded-sm text-primary-text font-bold py-1.5 px-5  transition-all hover:drop-shadow-[0_0_10px_rgba(255,255,255,1)] text-center font-karla flex items-center justify-center;
+}
+
+.head_text {
+  @apply mt-5 text-5xl transition-all font-extrabold font-josefin leading-[1.4] text-primary-text sm:text-7xl sm:leading-[1.5];
+}
+
+/* Nav Component */
+.nav_p {
+  @apply max-sm:hidden transition-all drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] font-karla font-semibold text-4xl text-primary-text tracking-wide;
+}
+
+.nav_logo_cont:hover .nav_p{
+  @apply drop-shadow-[0_0_10px_rgba(255,255,255,1)]
+}
+
+.nav_text {
+  @apply text-5xl font-extrabold font-josefin text-primary-text sm:text-7xl ;
+}
+
+.nav_logo {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, -0.75, 0.2, 1.75);
+  transition-duration: 200ms;
+  transform: rotate(90deg);
+  @apply text-primary-green drop-shadow-[0_0_5px_rgba(0,255,0,0.8)] font-karla text-5xl font-extrabold sm:text-7xl;
+}
+
+.nav_logo_cont:hover .nav_logo{
+  transform: rotate(0deg);
+  @apply drop-shadow-[0_0_10px_rgba(0,255,0,1)]
+}
+
+.green_bg_text {
+    @apply rounded-sm bg-primary-green text-primary-bg font-karla px-4 ;
+}
+
+/* DashBoard grid */
+.grid_dropdown {
+  @apply flex-col gap-2 px-8 overflow-hidden;
+}
+
+.grid_checkbox {
+  @apply h-4 w-4 rounded border-gray-500
+}
+
+/* Log in / Sign up */
+.sign_in_cont {
+  @apply rounded-sm bg-[rgba(0,0,0,0.4)];
+}
+
+.sign_in_text {
+  @apply text-5xl text-center font-extrabold font-josefin leading-[1.4] text-primary-text sm:text-7xl sm:leading-[1.5];
+}
+
+.appear_top {
+  animation: appear_top backwards ease 0.2s;
+}
+
+@keyframes appear_top {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+
+.disappear_top {
+  animation: disappear_top forwards ease 0.2s;
+}
+
+@keyframes disappear_top {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+
+.green_gradient {
+    @apply bg-gradient-to-r from-primary-green to-secondary-green font-karla tracking-widest bg-clip-text text-transparent;
+}
+
+
+
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+
+.blue_gradient {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+.desc {
+  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-karla pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+}
+
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+
+.prompt_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
+
+/* Feed Component */
+.feed {
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+}
+
+/* Form Component */
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+
+
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+
+.dropdown_link {
+  @apply text-sm font-josefin text-gray-700 hover:text-gray-500 font-medium;
+}
+
+/* PromptCard Component */
+.prompt_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
