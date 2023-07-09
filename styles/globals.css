@@ -178,6 +178,24 @@
   }
 }
 
+.dropdown {
+  @apply absolute right-5 top-5 z-[-1] h-8 p-0 w-8 overflow-hidden rounded-sm bg-white flex flex-col gap-2 justify-end items-end transition-all;
+}
+
+.dropdown_active {
+  @apply absolute right-5 top-full h-auto p-5 w-[200px] rounded-sm bg-white flex flex-col gap-2 justify-end items-end;
+}
+
+.dropdown_link {
+  @apply text-sm font-josefin text-gray-700 hover:text-gray-500 font-medium;
+}
+
+
+
+
+
+
+
 
 .green_gradient {
     @apply bg-gradient-to-r from-primary-green to-secondary-green font-karla tracking-widest bg-clip-text text-transparent;
@@ -229,13 +247,6 @@
 
 
 
-.dropdown {
-  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
-}
-
-.dropdown_link {
-  @apply text-sm font-josefin text-gray-700 hover:text-gray-500 font-medium;
-}
 
 /* PromptCard Component */
 .prompt_card {
