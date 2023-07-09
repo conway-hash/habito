@@ -10,7 +10,7 @@ const HabitBox = ({ name, desc }) => {
 
     const handleChange = () => {
         setIsChecked(!isChecked)
-        setContClassName(!isChecked ? "grid_checkbox_container grid_checkbox_container_animation_good" : "grid_checkbox_container grid_checkbox_container_animation_bad")
+        setContClassName(!isChecked ? "grid_checkbox_container opacity-50" : "grid_checkbox_container")
     }
 
     return (

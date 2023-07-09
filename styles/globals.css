@@ -130,40 +130,9 @@
 }
 
 .grid_checkbox_container {
-  @apply rounded-sm flex gap-2 px-1 pb-1;
+  @apply rounded-sm flex gap-2 px-1 pb-1 transition-all;
 }
 
-.grid_checkbox_container_animation_good {
-  @apply animate-[checkbox-container-animation-good_1s_ease_forwards];
-}
-
-@keyframes checkbox-container-animation-good {
-  0% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: rgba(89, 255, 0, 0.2);
-  }
-  100% {
-    background-color: transparent;
-  }
-}
-
-.grid_checkbox_container_animation_bad {
-  @apply animate-[checkbox-container-animation-bad_1s_ease_forwards];
-}
-
-@keyframes checkbox-container-animation-bad {
-  0% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: rgba(255, 0, 0, 0.2);
-  }
-  100% {
-    background-color: transparent;
-  }
-}
 
 
 
