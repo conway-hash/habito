@@ -1,6 +1,6 @@
 'use client';
 
-import TimeOfDay from '@components/TimeOfDay'
+import HabitGroup from '@components/HabitGroup'
 import { useEffect, useState } from "react";
 
 const Dashboard = () => {
@@ -35,10 +35,24 @@ const Dashboard = () => {
         return () => clearTimeout(timer);
     }, [currentTime])
 
+    const toDos = [
+        { name: 'Breakfast', time: 'Morning', desc: ' Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty', key: 1 },
+        { name: 'Excercise', time: 'Morning', desc: 'Musis ist cvicit, aby si bol svalnaty', key: 2 },
+        { name: 'Vitamins', time: 'Morning', desc: 'Musis zobrat vitamin, aby si bol zdravy', key: 3 }, { name: 'Breakfast', time: 'Morning', desc: ' Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty', key: 4 },
+        { name: 'Excercise', time: 'Morning', desc: 'Musis ist cvicit, aby si bol svalnaty', key: 5 },
+        { name: 'Vitamins', time: 'Morning', desc: 'Musis zobrat vitamin, aby si bol zdravy', key: 6 }, { name: 'Breakfast', time: 'Morning', desc: ' Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty', key: 7 },
+        { name: 'Excercise', time: 'Morning', desc: 'Musis ist cvicit, aby si bol svalnaty', key: 8 },
+        { name: 'Vitamins', time: 'Morning', desc: 'Musis zobrat vitamin, aby si bol zdravy', key: 9 }, { name: 'Breakfast', time: 'Morning', desc: ' Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty', key: 10 },
+        { name: 'Excercise', time: 'Morning', desc: 'Musis ist cvicit, aby si bol svalnaty', key: 11 },
+        { name: 'Vitamins', time: 'Morning', desc: 'Musis zobrat vitamin, aby si bol zdravy', key: 12 }, { name: 'Breakfast', time: 'Morning', desc: ' Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty Musis ist cvicit, aby si bol svalnaty', key: 13 },
+        { name: 'Excercise', time: 'Morning', desc: 'Musis ist cvicit, aby si bol svalnaty', key: 14 },
+        { name: 'Vitamins', time: 'Morning', desc: 'Musis zobrat vitamin, aby si bol zdravy', key: 15 }
+    ]
+
 
     return (
         <section className="w-full flex-center mt-16 sm:mt-[6rem] gap-2 flex-col">
-            <div className="sign_in_cont w-full p-4">
+            <div className="sign_in_cont w-full sm:p-4">
                 <h2 className="text-primary-text text-center font-karla text-4xl sm:text-5xl">{currentTime}</h2>
                 <h2 className="text-primary-text  text-center font-karla">{currentDate}</h2>
             </div>
@@ -53,11 +67,11 @@ const Dashboard = () => {
                 <hr />
                 <div className="">
 
-                    <TimeOfDay label='Morning' expanded={true} />
+                    <HabitGroup label='Morning' expanded={true} toDos={toDos} />
 
-                    <TimeOfDay label='Afternoon' expanded={false} />
+                    <HabitGroup label='Afternoon' expanded={false} toDos={toDos} />
 
-                    <TimeOfDay label='Evening' expanded={false} />
+                    <HabitGroup label='Evening' expanded={false} toDos={toDos} />
 
                 </div>
             </div>

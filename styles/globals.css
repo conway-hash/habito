@@ -66,7 +66,7 @@
 
 /* Tailwind Styles */
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-3 transition-all;
 }
 
 .green_btn {
@@ -78,7 +78,7 @@
 }
 
 .dashboard_btn {
-  @apply rounded-sm text-primary-text font-bold py-1.5 px-5  transition-all hover:drop-shadow-[0_0_10px_rgba(255,255,255,1)] text-center font-karla flex items-center justify-center;
+  @apply rounded-sm text-primary-text font-bold py-0.5 sm:py-1.5 px-0 sm:px-5  transition-all hover:drop-shadow-[0_0_10px_rgba(255,255,255,1)] text-center font-karla flex items-center justify-center;
 }
 
 .head_text {
@@ -117,12 +117,57 @@
 
 /* DashBoard grid */
 .grid_dropdown {
-  @apply flex-col gap-2 px-8 overflow-hidden;
+  @apply flex flex-col gap-2 px-4 sm:px-8 overflow-hidden transition-all;
 }
 
 .grid_checkbox {
-  @apply h-4 w-4 rounded border-gray-500
+  all:unset;
+  @apply w-3 h-3 sm:w-4 sm:h-4 ring-primary-text ring-1 bg-transparent flex-shrink-0 cursor-pointer mt-1;
 }
+
+.grid_checkbox[type=checkbox]:checked {
+  @apply bg-[url('/assets/icons/checked.svg')] bg-[length:0.5rem_0.5rem] sm:bg-[length:0.65rem_0.65rem] bg-no-repeat bg-center;
+}
+
+.grid_checkbox_container {
+  @apply rounded-sm flex gap-2 px-1 pb-1;
+}
+
+.grid_checkbox_container_animation_good {
+  @apply animate-[checkbox-container-animation-good_1s_ease_forwards];
+}
+
+@keyframes checkbox-container-animation-good {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(89, 255, 0, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.grid_checkbox_container_animation_bad {
+  @apply animate-[checkbox-container-animation-bad_1s_ease_forwards];
+}
+
+@keyframes checkbox-container-animation-bad {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+
+
+
 
 /* Log in / Sign up */
 .sign_in_cont {
